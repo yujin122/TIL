@@ -9,6 +9,18 @@
 
 
 ### main(String[] args)를 이용하는 방법
+1. 선언
+
+	    String  s = args[0]
+- args 값은 String이므로 다른 자료형으로 사용하려면 따로 형변환을 해줘야한다.
+2. 값 입력
+	1. 네모박스 안에 있는 ▼를 누른다
+![enter image description here](img/java_1.jpg)
+	2.  Run Configurations -> Java Application -> Arguments 로 들어간다.
+![enter image description here](img/java_2.jpg)
+	3. Program arguments 박스에 값을 입력한다. 값이 여러개인 경우 enter로 구분.
+![enter image description here](img/java_3.jpg)
+3. Run
 
 ### JOptionPane 클래스를 이용하는 방법
 
