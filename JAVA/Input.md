@@ -15,9 +15,10 @@
 - args 값은 String이므로 다른 자료형으로 사용하려면 따로 형변환을 해줘야한다.
 2. 값 입력
 	1. 네모박스 안에 있는 ▼를 누른다
-![enter image description here](!%5Bjava_1%5D%28https://user-images.githubusercontent.com/46274903/91530038-57023880-e945-11ea-96b6-fa43423ef007.jpg%29)
+![java_1](https://user-images.githubusercontent.com/46274903/91531847-65058880-e948-11ea-8ce8-a874980152ea.jpg)
 	2.  Run Configurations -> Java Application -> Arguments 로 들어간다.
-![enter image description here](!%5Bjava_2%5D%28https://user-images.githubusercontent.com/46274903/91530065-641f2780-e945-11ea-884b-631233bd190f.jpg%29)
+![java_2](https://user-images.githubusercontent.com/46274903/91531783-515a2200-e948-11ea-8a80-e6b0c03a52f7.jpg)
+
 	3. Program arguments 박스에 값을 입력한다. 값이 여러개인 경우 enter로 구분.
 ![java_3](https://user-images.githubusercontent.com/46274903/91530080-6bdecc00-e945-11ea-9582-dd90a620d07a.jpg)
 3. Run
