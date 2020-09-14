@@ -52,6 +52,7 @@ num[4] = 50;
 ```java
 for(int i : num){
 	System.out.println("배열 num의 원소 : " + i);
+}
 ```
 ### 결과
 ```
