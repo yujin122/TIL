@@ -59,19 +59,18 @@ public class Class {
 ## 자바에서 사용되는 용어들
 
 1. **변수** : 프로그램이 끝날 때까지 언제든지 변할 수 있는 속성 
-
 2. **상수** : 프로그램이 끝날 때까지 절대 변하지 않는 속성
 3. **인스턴스(instance) 변수/메서드**
 - 객체의 생성과 동시에 만들어지는 변수/메서드
 - 객체는 `heap 메모리 공간`에 만들어짐
 - 반드시 `객체 생성 후 사용`이 가능
-- 호출방법 : **참조변수**.멤버변수 or 참조변수.멤버메서드
+- 호출방법 : 참조변수.멤버변수 or 참조변수.멤버메서드
 4. **static(스태틱, 정적) 변수/메서드**
 - 객체의 생성과 상관없이 별도로 만들어지는 변수
 - `static 메모리(method 영역)`에서 별도로 만들어짐
 - `객체를 생성하지 않아도` 어느 클래스나 접근 가능
 - 항상 메모리에 상주하게 되어 메모리 회수가 안되는 단점이 있음
-- 호출방법 : **클래스이름**.멤버변수 or 클래스이름.멤버메서드
+- 호출방법 : 클래스이름.멤버변수 or 클래스이름.멤버메서드
 5. **지역변수(local variable)**
 - 메서드 블럭 안에서 선언된 변수
 - 메서드 블럭이 끝나는 순간 생명이 끝남
@@ -79,11 +78,10 @@ public class Class {
 ### 클래스 메서드(static메서드)와 인스턴스(instance) 메서드
 
 - 클래스 메서드(static메서드)는 인스턴스 변수를 사용할 수 없다.
-	- 클래스 메서드는 항상 메모리에 존재하지만 인스턴스 변수는 인스턴스를 생성해야만 존재한다.
-	- 클래스 메서드가 호출되었을 때 인스턴스가 존재하지 않을 수 있다.
-
+	-> 클래스 메서드는 항상 메모리에 존재하지만 인스턴스 변수는 인스턴스를 생성해야만 존재한다.
+	-> 클래스 메서드가 호출되었을 때 인스턴스가 존재하지 않을 수 있다.
 - 메서드 내에서 인스턴스 변수를 사용하지 않는다면, static을 붙이는 것을 고려한다.
-	- 메서드 호출시간이 짧아 성능이 향상된다.
+	-> 메서드 호출시간이 짧아 성능이 향상된다.
 ```java
 class Add {
 	
@@ -168,4 +166,96 @@ Member mem2 = new Member("이유리",28,"010-6531-5466","개발자");
 ```
 - 인스턴스를 생성하고 값을 변경하는 것보다 매개변수를 갖는 생성자를 사용하는 것이 코드를 더 간결하고 직관적으로 만든다.
 
+## 캡슐화
+데이터를 외부에서 변경하지 못하도록 `외부의 접근을 제한`하는 것
 
+- **private** : 외부에서 접근 차단
+- **public** : 모든 클래스에서 접근 가능
+
+### setter() / getter() 메서드로 접근 가능
+#### setter() 
+private 멤버변수에 값을 지정(`초기값 할당`)하는 역할을 하는 메서드
+
+    public void set멤버변수명(자료형 매개변수) {
+    		멤버변수 = 매개변수;
+    }
+
+```java
+public void setNum1(int num1) {
+	this.num1 = num1;
+}
+```
+#### getter() 
+private 멤버변수에 할당된 값을 `가져오는` 역할을 하는 메서드
+
+    public 반환형 get멤버변수명() {
+    	return 멤버변수명;
+    }
+
+```java
+public int getNum1() {
+		return num1;
+}
+```
+### this
+주로 멤버변수와 메서드 또는 생성자의 매개변수 이름이 동일할 때 인스턴스의 멤버임을 명확히 하기 위해 사용
+
+- 멤버변수(전역변수) 앞에 this라는 키워드를 붙여 구분
+- 지역변수와 전역변수의 이름이 같으면 우선순위는 지역변수가 높다.
+```java
+class Number {
+	
+	private int num1;
+	private int num2;
+	
+	public void setNum1(int num1) {
+		this.num1 = num1;
+	}
+	
+	public void setNum2(int num2) {
+		this.num2 = num2;
+	}
+	public int getNum1() {
+		return num1;
+	}
+	
+	public int getNum2() {
+		return num2;
+	}
+}
+
+public class Number_Main {
+
+	public static void main(String[] args) {
+		Number num = new Number();
+		
+		//num.num1 = 10000;	 외부에서 접근 X
+		
+		num.setNum1(10000);
+		System.out.println("num1 : " + num.getNum1());
+		
+		num.setNum2(5000);
+		System.out.println("num2 : " + num.getNum2());		
+	}
+
+}
+```
+
+## 객체배열
+배열 안에 객체가 저장 되는 것이 아닌 `객체의 주소 값`이 저장된다.
+
+<img src="https://user-images.githubusercontent.com/46274903/93580355-aa165b00-f9da-11ea-94ed-12f0f6510465.PNG " width="600"  height="">
+
+### 구현
+
+1. 객체 배열 생성
+```java
+Book[] books = Book[3];
+```
+
+2. 각 인덱스에 객체 생성
+```java
+books[0] = new Book();
+books[1] = new Book();
+books[2] = new Book();
+```
