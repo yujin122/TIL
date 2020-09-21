@@ -259,3 +259,145 @@ books[0] = new Book();
 books[1] = new Book();
 books[2] = new Book();
 ```
+
+## 상속(inheritance)
+기존의 클래스를 `재사용`하여 새로운 클래스를 작성하는 것
+
+<img src="https://user-images.githubusercontent.com/46274903/93748884-eb557780-fc33-11ea-8271-50af55efa134.PNG " width=""  height="">
+
+- 자식과 부모의 관계로 형성
+	- 부모클래스 :  Super, Parent 클래스
+	- 자식클래스 :  Sub, Child 클래스
+
+- 자식은 부모의 멤버보다 같거나 많다.
+- 부모클래스를 변경하면 자식클래스는 자동으로 영향을 받지만 부모클래스는 자식클래스를 변경하여도 영향을 받지 않는다.
+- 상속의 대상은 멤버(멤버변수, 멤버메서드)
+	- 생성자, private 접근 제한을 갖는 멤버는 상속에서 제외된다.
+- `단일 상속`만 가능
+
+### 장점
+
+> 코드의 재사용성을 높이고 코드의 중복을 제거하여 
+> 프로그램의 생산성과 유지보수에 크게 기여
+
+### 형식
+	[접근제한] class 자식클래스 extends 부모클래스{ }
+```java
+class Circle extends Shape { }
+```
+
+### 포함(Composite)관계
+클래스의 멤버변수로 다른 클래스 타입의 참조변수를 선언하는 것
+
+```java
+class Car{
+	Engine e = new Engine();
+	//...
+}
+```
+- 포함관계 : ~은 ~을 가지고 있다.(has a)
+- 상속관계 : ~은 ~이다.(is a)
+
+### 오버라이딩(Overriding)
+부모클래스에서 정의한 메서드를 자식 클래스에서 `재정의` 하는 것
+
+- 반드시 `상속관계`에서만 발생
+- 이름, 매개변수, 반환타입이 일치해야 한다.
+- 접근지정자는 부모클래스의 메서드보다 좁은 범위로 변경할 수 없다.
+	- default -> public (O) / default -> private (X)
+- 부모클래스의 메서드보다 많은 수의 예외를 선언할 수 없다.
+
+```java
+class Point {
+	int x;
+	int y;
+
+	void prn(){
+		System.out.println("x : " + x + "y : " + y);
+	}
+}
+
+class Point3D extends Point{
+	int z;
+	
+	//overriding
+	void prn(){
+		System.out.println("x : " + x + "y : " + y + "z : " + z);
+	}
+}
+```
+
+### 오버로딩과 오버라이딩
+**오버로딩** : 기존에 없는 메서드를 정의하는 것
+**오버라이딩** : 상속받은 메서드의 내용을 재정의 하는 것
+
+### super
+자식클래스에서 부모클래스의 `멤버를 호출`하는 명령어
+
+	 super.부모클래스멤버(멤버변수, 멤버메서드)
+
+```java
+class Car2{
+	int cc;
+	String color = "검정색";
+}
+
+class Avante extends Car2{
+	String color = "흰색";
+	
+	void prn() {
+		System.out.println("엔진 : " + cc +", 색상 : "+color);
+		System.out.println("엔진 : " + cc +", 색상 : "+super.color);
+		System.out.println("엔진 : " + cc +", 색상 : "+this.color);
+	}
+}
+```
+```
+엔진 : 1600, 색상 : 흰색
+엔진 : 1600, 색상 : 검정색
+엔진 : 1600, 색상 : 흰색
+```
+### super()
+자식클래스에서 부모클래스의 `생성자를 호출`하는 명령어
+
+    super(인자);	// 인자생략가능
+
+- 자식클래스 생성자의 `첫 줄`에서 부모클래스의 생성자를 호출해야한다.
+	- 자식클래스의 멤버가 부모클래스의 멤버를 사용할 수 있도록 먼저 초기화가 되어있어야 하므로.
+- super();을 호출하지 않았을 경우 컴파일러가 자동적으로 super();을 생성자 첫 줄에 삽입한다.
+
+```java
+class Point {
+	int x;
+	int y;
+	
+	public Point() { }	
+	
+	public Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+class Point3D extends Point{
+	
+	int z;
+	
+	public Point3D() { super(); }
+	
+	public Point3D(int x, int y) {
+		super(x,y);		// 부모 클래스에 Point(int x, int y) 생성자가 정의되어 있지 않으면 오류
+	}
+	
+	void prn() {
+		System.out.println("X 좌표 >>> "+ x);
+		System.out.println("Y 좌표 >>> "+ y);
+		System.out.println("Z 좌표 >>> "+ z);
+	}
+	
+	public Point3D(int x, int y, int z) {
+		this(x,y);		// public Point3D(int x, int y)
+		this.z = z;
+	}
+}
+```
