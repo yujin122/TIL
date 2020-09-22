@@ -329,7 +329,6 @@ class Point3D extends Point{
 
 ### 오버로딩과 오버라이딩
 **오버로딩** : 기존에 없는 메서드를 정의하는 것
-
 **오버라이딩** : 상속받은 메서드의 내용을 재정의 하는 것
 
 ### super
@@ -402,3 +401,81 @@ class Point3D extends Point{
 	}
 }
 ```
+## 추상클래스(abstract class)
+`추상메서드`를 포함하는 클래스
+
+- 추상메서드를 재정의하지 않으면 error 발생
+- 추상클래스는 객체 생성이 불가능, 자식클래스를 대상으로 객체 생성
+- 일반 멤버(멤버변수, 멤버메서드)를 가질 수 있다.
+
+### 형식
+	[접근제한] abstract class 클래스명 {		}
+
+### 추상메서드
+선언부만 작성하고 구현부(본체,body)는 작성하지 않은 메서드
+
+- 추상클래스를 상속받는 자식클래스에서 재정의
+- 추상클래스의 추상 메서드를 모두 구현해주어야 한다.
+	- 하나라도 구현하지 않으면 자손클래스도 추상클래스로 지정
+
+### 형식
+
+    abstract 리턴타입 메서드이름();
+
+```java
+abstract class Super {	// 추상클래스
+	int num1;
+	
+	int calc() {	/*	내 용 생 략	*/	}
+	
+	abstract void display();	// 추상메서드
+}
+
+class Sub extends Super{
+
+	@Override
+	void display() {	/*	내 용 생 략	*/	}
+
+}
+```
+### 추상화와 구체화
+**추상화** : 클래스간의 공통점을 찾아내서 공통의 조상을 만드는 작업
+**구체화** : 상속을 통해 클래스를 구현, 확장하는 작업
+
+## 인터페이스(interface)
+일종의 추상클래스, 추상클래스보다 추상화 정도가 더 높다.
+실제 구현된 것이 전혀 없는 기본 설계도
+
+- `추상메서드와 상수만`을 멤버로 갖는다.
+- 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄 목적으로 사용된다. 
+- 자식클래스로 객체를 생성, 인터페이스의 메서드 중 일부만 구현한다면 abstract를 붙여 추상클래스로 선언해야한다.
+- `다중 상속 가능`, 상속 시 extends가 아닌 **implements**를 사용
+
+### 형식
+	interface 인터페이스이름 {
+			public static final 타입 상수이름 = 값;
+			public abstract 메서드이름(메개변수목록);
+	}
+
+- 모든 멤버변수는 상수(public static final) 로 인식
+- 모든 메서드는 추상메서드(public abstract) 로 인식
+
+```java
+interface Inter{
+	int num = 100;
+	
+	void display1();
+	void display2();
+}
+
+class Sub implements Inter{
+
+	@Override
+	public void display1() {	/*	내 용 생 략	*/	}
+
+	@Override
+	public void display2() {	/*	내 용 생 략	*/	}
+	
+}
+```
+
