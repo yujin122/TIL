@@ -1,6 +1,4 @@
-﻿# 클래스(Class)
-
-### 객체(Object)란?
+﻿# 객체(Object)란?
 실제로 존재하는 것. 책상, 의자, 자동차와 같은 사물들을 객체라고 한다.
 
 - 객체들은 자신만의 고유한 `특성(속성)과 행동(기능)`을 가지고 있다.
@@ -449,6 +447,7 @@ class Sub extends Super{
 - `추상메서드와 상수만`을 멤버로 갖는다.
 - 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄 목적으로 사용된다. 
 - 자식클래스로 객체를 생성, 인터페이스의 메서드 중 일부만 구현한다면 abstract를 붙여 추상클래스로 선언해야한다.
+- 인터페이스도 상속을 받을 수 있다.
 - `다중 상속 가능`, 상속 시 extends가 아닌 **implements**를 사용
 
 ### 형식
@@ -478,4 +477,142 @@ class Sub implements Inter{
 	
 }
 ```
+### 장점
+
+> 개발시간 단축
+> 
+> 표준화 가능
+> 
+> 서로 관계없는 클래스들에게 관계를 맺어 줄 수 있다.
+> 
+> 독립적인 프로그래밍 가능
+
+## 다형성(polymorphism)
+`한 타입의 참조변수로 여러 타입의 객체를 참조`할 수 있는 것
+
+- 조상클래스 타입의 참조변수로 자손클래스의 인스턴스를 참조할 수 있다.
+
+- 반대로 자손타입의 참조변수로 조상타입의 인스턴스를 참조할 수는 없다.
+- 다형성을 이용하여 부모의 참조변수로 자식의 객체를 생성했을 때 부모에는 없는 자식의 멤버를 호출할 수 없다.
+
+```java
+class Animal{
+	
+	void sound() {
+		System.out.println("소리를 냅니다.");
+	}
+}
+
+class Dog extends Animal{
+	
+	@Override
+	void sound() {
+		System.out.println("멍멍멍");
+	}
+	
+	void prn(){	/* 내용 생략 */ }
+	
+}
+
+class Cat extends Animal{
+	@Override
+	void sound() {
+		System.out.println("야옹");
+	}
+}
+
+public class Animal_Main {
+
+	public static void main(String[] args) {
+	
+		// 다형성을 이용한 객체 생성 1
+		Dog dog =new Dog();
+		Animal animal = dog;
+		
+		// 다형성을 이용한 객체 생성 2
+		Animal animal1 = new Dog();
+		animal1.sound();
+		
+		// 다형성을 이용하여 부모의 참조변수로 자식의 객체를 생성했을 때
+		// 부모에는 없는 자식의 멤버를 호출할 수 없다.
+		animal1.prn();	// error
+		
+		Animal animal2 = new Cat();
+		animal2.sound();
+	}
+}
+```
+### instanceof 연산자
+참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기 위해 사용
+
+- boolean(true/false)로 반환
+
+```java
+if(a instanceof Car)
+```
+- 참조변수 a의 타입이 Car 타입이라면 true, 아니라면 false
+```java
+if(a instanceof Vehicle)
+```
+- Vehicle이 Car 클래스의 조상클래스라면 true가 반환된다.
+
+## final 지정자
+
+#### 클래스 
+- 변경할 수 없는 클래스, 확장될 수 없는 클래스
+- final로 지정된 클래스는 다른 클래스의 조상이 될 수 없음
+```java
+public final class EE{		}
+
+class AA extends EE{	}	// error
+```
+#### 멤버메서드 
+- 변경될 수 없는 메서드
+- final로 지정된 메서드는 오버라이딩을 통해 재정의 할 수 없음
+```java
+class AA {
+	final void prn(){	/* 내용 생략 */ }
+}
+
+class BB extends AA{
+	@Override
+	void prn{	/* 내용 생략 */ }	// error
+}
+```
+#### 멤버변수 
+- 변경될 수 없는 변수 
+- final로 지정된 변수는 값을 변경할 수 없다.
+```java
+class AA {
+	final int aa = 100;
+}
+
+class BB extends AA{
+	aa = 200;	// error
+}
+```
+## 패키지(package)
+서로 연관성이 있는 클래스들과 인터페이스들의 묶음
+
+- 모든 클래스는 반드시 하나의 패키지에 속해야 한다.
+- 패키지는 서브패키지를 가질 수 있으며, 점(.)으로 구분한다.
+
+### import문
+현재 패키지의 클래스에서 다른 패키지에 있는 다른 클래스를 사용하고 싶을 때 사용
+
+#### 형식
+
+    import 패키지명.클래스명;
+    import 패키지명.*;
+
+- 패키지명.* 은 지정된 패키지에 속하는 모든 클래스를 사용
+- ctrl + shift  + o 를 누르면 자동으로 import 문 추가
+
+## 접근 제어자(access modifier)
+클래스, 멤버변수, 메서드, 생성자에서 사용
+
+    private 	같은 클래스 내에서만 접근이 가능
+    default 	같은 패키지 내에서만 접근이 가능
+    protected 	같은 패키지 내에서, 그리고 다른 패키지의 자손클래스에서 접근이 가능
+    public		모든 클래스에서 접근이 가능
 
