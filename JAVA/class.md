@@ -693,3 +693,43 @@ Outer outer = new Outer();
 // 2. 내부 클래스 객체 생성
 Outer.Inner inner = outer.new Inner();
 ```
+
+## wrapper class
+기본자료형을 클래스 타입으로 `포장`해 놓은 클래스
+
+- 기본 타입의 값을 내부에 두고 포장하기 때문에 포장(wrapper) 객체라고 한다.
+- wrapper class
+	- Byte
+	- Short
+	- Long
+	- Float
+	- Double
+	- Boolean
+	- Character
+	- Integer
+
+### 사용 이유
+1. 매개변수로 객체가 요구될 때
+2. 기본형 값이 아닌 객체로 저장해야 될 때
+3. 객체간 비교가 필요할 때
+4. 형변환이 자유롭기 때문
+
+```java
+int num1 = 100;
+
+// 박싱(boxing) : 기본자료형 -> 클래스형
+Integer in = new Integer(num1);
+
+Integer in1 = new Integer(200);
+
+// 언박싱(unboxing) : 클래스형 -> 기본자료형
+in1.intValue();
+in1.floatValue();		// float 형변환
+
+// 숫자 -> 문자열 : toString() or String.valueOf(숫자)
+in1.toString();
+String.valueOf(in1);
+
+// 문자열 -> 숫자 : parseInt()
+Integer.parseInt(in1.toString());
+```
