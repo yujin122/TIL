@@ -17,7 +17,7 @@
 **생성**
 
     ArrayList<T> 참조변수 = new ArrayList<T>();
-    List<T> 참조변수 = new ArrayList<T>();
+    List<T> 참조변수 = new 자식클래스();
 
 ```java
 ArrayList<String> list = new ArrayList<String>();
@@ -28,11 +28,11 @@ List<String> list = new ArrayList<String>();
 
 **관련 메서드**
 
-- **add(element(값))** : 데이터 추가
+- **add(element(*value*))** : 데이터 추가
 ```java
 list.add("abc");
 ```
-- **add(index, element(값))** : 특정 index에 데이트를 추가
+- **add(index, element(*value*))** : 특정 index에 데이트를 추가
 ```java
 list.add(2,"b");
 ```
@@ -40,7 +40,7 @@ list.add(2,"b");
 ```java
 list.size()
 ```
-- **get(index)** : 특정 요소(index) 출력
+- **get(*index*)** : 특정 요소(index) 출력
 ```java
 list.get(3);
 ```
@@ -48,11 +48,14 @@ list.get(3);
 ```java
 list.clear();
 ```
-- **remove(index)** : 특정 요소(index)를 삭제
+- **remove(*index*)** : 특정 요소(index)를 삭제
 	- 다음 index부터 index 값이 한칸씩 당겨진다.
 ```java
 list.remove(1);
 ```
+**단점**
+
+> 용량을 변경해야할 때 상당히 효율이 떨어짐
 
 ### LinkedList
 
@@ -67,3 +70,114 @@ LinkedList<Integer> list=new LinkedList<Integer>();
 // 다형성으로 객체 생성
 List<Integer> list = new LinkedList<Integer>();
 ```
+### Stack
+
+- LIFO(Last In First Out) 구조
+
+**생성**
+
+```java
+Stack<String> stack = new Stack<String>();
+```
+**관련 메서드**
+
+- **push()** : 스택에 저장
+```java
+stack.push("abc");
+```
+- **peek()** : stack의 맨 위에 있는 데이터를 가져옴, 가져온 데이터를 제거하지 않음.
+```java
+stack.peek()
+```
+- **pop()** : stack의 맨 위에 있는 데이터를 가져옴, 가져온 데이터를 stack에서 제거.
+```java
+stack.pop()
+```
+### Queue
+
+-  FIFO(First In First Out) 구조
+- 인터페이스이므로 자식클래스로 객체 생성해서 사용
+- 대표적인 자식클래스는  LinkedList
+
+**생성**
+
+```java
+Queue<String> queue = new LinkedList<String>();
+```
+
+**관련 메서드**
+
+- **offer()** : 큐에 저장
+```java
+queue.offer("abc");
+```
+- **peek()** : queue의 맨 위에 있는 데이터를 가져옴, 가져온 데이터를 제거하지 않음.
+```java
+queue.peek()
+```
+- **poll()** : queue의 맨 위에 있는 데이터를 가져옴, 가져온 데이터를 queue에서 제거.
+```java
+queue.poll()
+```
+
+## Set 
+
+- 자료의 순서가 없다.
+- 중복 데이터를 허용하지 않는다.
+-  Set 인터페이스의 자식클래스를 이용하여 구현
+	-  HashSet, TreeSet
+
+**생성**
+```java
+Set<Integer> set = new HashSet<Integer>();
+```
+
+## Map
+
+- 키(key)와 값(value)을 하나의 쌍으로 묶어서 저장
+- 키 중복 X, 값 중복 O
+- Map 인터페이스의 자식클래스를 이용하여 구현
+	- Hashtable, HashMap, TreeMap
+
+**생성**
+```java
+Map<String, Integer> map = new HashMap<String, Integer>();
+```
+
+**관련 메서드**
+
+- **put(*key, value*)** : 데이터 저장
+```java
+map.put("abc", 95);
+```
+- **get(*key*)** : key에 해당하는 value 값을 반환
+```java
+map.get("abc");
+```
+- **containsKeys(*value*)** : 값과 동일한 key가 존재하면 true / 존재하지 않으면 false
+```java
+map.containsKey("abc");
+```
+
+## Iterator
+컬렉션에 `저장된 요소를 접근`하는데 사용되는 인터페이스
+
+**생성**
+
+    Iterator<T> 참조변수 = 컬렉션참조변수.iterator();
+
+```java
+Iterator<String> it = list.iterator();
+```
+
+**관련 메서드**
+
+- **hasNext()** : 읽어올 요소가 남아있는지 확인 (true/false)
+```java
+it.hasNext();
+```
+- **next()** : 다음 요소를 읽어옴
+```java
+it.next();
+``` 
+
