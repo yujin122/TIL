@@ -19,6 +19,7 @@
     ArrayList<T> 참조변수 = new ArrayList<T>();
     List<T> 참조변수 = new 자식클래스();
 
+**코드**
 ```java
 ArrayList<String> list = new ArrayList<String>();
 
@@ -183,6 +184,7 @@ map.containsKey("abc");
 
     Iterator<T> 참조변수 = 컬렉션참조변수.iterator();
 
+**코드**
 ```java
 Iterator<String> it = list.iterator();
 ```
