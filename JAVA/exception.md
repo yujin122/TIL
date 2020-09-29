@@ -46,6 +46,8 @@
 		예외와 상관없이 실행되는 코드
 		
 	}
+	
+**코드**
 
 ```java
 System.out.println("프로그램 시작");
@@ -74,6 +76,7 @@ catch문을 여러 개 사용하여 예외를 처리하는 방식
 - catch문은 순차적으로 실행
 - 예외를 처리하는 가장 상위의 Exception클래스는 맨 마지막 줄에 나와야 한다.
 
+**코드**
 ```java
 System.out.println("프로그램 시작");
 	
@@ -115,6 +118,7 @@ throws로 지정된 메서드를 호출할 경우 메서드 내에서 예외가 
 
     메서드명 throws 예외처리클래스{		}
 
+**코드**
 ```java
 public class Ex09 {
 	void exception1() throws Exception{
