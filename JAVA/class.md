@@ -21,6 +21,8 @@
 			멤버메서드;
 	}
 - 클래스의 이름은 대문자로 시작
+
+**코드**
 ```java
 public class Class {
 	// 멤버변수는 초기값을 설정하지 않으면 JVM이
@@ -54,6 +56,8 @@ public class Class {
 	ex.display();
 	```
 
+<br/>
+
 ## 자바에서 사용되는 용어들
 
 1. **변수** : 프로그램이 끝날 때까지 언제든지 변할 수 있는 속성 
@@ -72,14 +76,19 @@ public class Class {
 5. **지역변수(local variable)**
 - 메서드 블럭 안에서 선언된 변수
 - 메서드 블럭이 끝나는 순간 생명이 끝남
+<br/>
 
 ### 클래스 메서드(static메서드)와 인스턴스(instance) 메서드
 
 - 클래스 메서드(static메서드)는 인스턴스 변수를 사용할 수 없다.
+
 	-> 클래스 메서드는 항상 메모리에 존재하지만 인스턴스 변수는 인스턴스를 생성해야만 존재한다.
+	
 	-> 클래스 메서드가 호출되었을 때 인스턴스가 존재하지 않을 수 있다.
 - 메서드 내에서 인스턴스 변수를 사용하지 않는다면, static을 붙이는 것을 고려한다.
+
 	-> 메서드 호출시간이 짧아 성능이 향상된다.
+
 ```java
 class Add {
 	
@@ -114,6 +123,8 @@ public static void main(String[] args) {
 	ex01.sum();
 }
 ```
+<br/>
+
 ## 생성자(Constructor)
 인스턴스가 생성될 때 호출되는 '`인스턴스 초기화 메서드`'
 
@@ -131,6 +142,8 @@ public static void main(String[] args) {
 
     [접근제한] 클래스이름() { }
 
+
+**코드**
 ```java
 public Member() {  }
 ```
@@ -141,6 +154,8 @@ public Member() {  }
     		생성자 호출 시 실행될 문장;
     }
 
+
+**코드**
 ```java
 public Member(String n, int a, String p, String j) {
 	name = n;
@@ -163,6 +178,7 @@ mem1.job = "은행원";
 Member mem2 = new Member("이유리",28,"010-6531-5466","개발자");
 ```
 - 인스턴스를 생성하고 값을 변경하는 것보다 매개변수를 갖는 생성자를 사용하는 것이 코드를 더 간결하고 직관적으로 만든다.
+<br/>
 
 ## 캡슐화
 데이터를 외부에서 변경하지 못하도록 `외부의 접근을 제한`하는 것
@@ -178,6 +194,7 @@ private 멤버변수에 값을 지정(`초기값 할당`)하는 역할을 하는
     		멤버변수 = 매개변수;
     }
 
+**코드**
 ```java
 public void setNum1(int num1) {
 	this.num1 = num1;
@@ -190,16 +207,20 @@ private 멤버변수에 할당된 값을 `가져오는` 역할을 하는 메서�
     	return 멤버변수명;
     }
 
+**코드**
 ```java
 public int getNum1() {
 		return num1;
 }
 ```
+
 ### this
 주로 멤버변수와 메서드 또는 생성자의 매개변수 이름이 동일할 때 인스턴스의 멤버임을 명확히 하기 위해 사용
 
 - 멤버변수(전역변수) 앞에 this라는 키워드를 붙여 구분
 - 지역변수와 전역변수의 이름이 같으면 우선순위는 지역변수가 높다.
+
+
 ```java
 class Number {
 	
@@ -238,6 +259,8 @@ public class Number_Main {
 
 }
 ```
+<br/>
+
 
 ## 객체배열
 배열 안에 객체가 저장 되는 것이 아닌 `객체의 주소 값`이 저장된다.
@@ -257,6 +280,7 @@ books[0] = new Book();
 books[1] = new Book();
 books[2] = new Book();
 ```
+<br/>
 
 ## 상속(inheritance)
 기존의 클래스를 `재사용`하여 새로운 클래스를 작성하는 것
@@ -280,6 +304,8 @@ books[2] = new Book();
 
 ### 형식
 	[접근제한] class 자식클래스 extends 부모클래스{ }
+
+**코드**
 ```java
 class Circle extends Shape { }
 ```
@@ -348,6 +374,7 @@ class Point3D extends Point{
 
 	 super.부모클래스멤버(멤버변수, 멤버메서드)
 
+**코드**
 ```java
 class Car2{
 	int cc;
@@ -413,6 +440,8 @@ class Point3D extends Point{
 	}
 }
 ```
+<br/>
+
 ## 추상클래스(abstract class)
 `추상메서드`를 포함하는 클래스
 
@@ -434,6 +463,8 @@ class Point3D extends Point{
 
     abstract 리턴타입 메서드이름();
 
+
+**코드**
 ```java
 abstract class Super {	// 추상클래스
 	int num1;
@@ -454,6 +485,8 @@ class Sub extends Super{
 **추상화** : 클래스간의 공통점을 찾아내서 공통의 조상을 만드는 작업
 **구체화** : 상속을 통해 클래스를 구현, 확장하는 작업
 
+<br/>
+
 ## 인터페이스(interface)
 일종의 추상클래스, 추상클래스보다 추상화 정도가 더 높다.
 실제 구현된 것이 전혀 없는 기본 설계도
@@ -473,6 +506,8 @@ class Sub extends Super{
 - 모든 멤버변수는 상수(public static final) 로 인식
 - 모든 메서드는 추상메서드(public abstract) 로 인식
 
+
+**코드**
 ```java
 interface Inter{
 	int num = 100;
@@ -500,6 +535,8 @@ class Sub implements Inter{
 > 서로 관계없는 클래스들에게 관계를 맺어 줄 수 있다.
 > 
 > 독립적인 프로그래밍 가능
+
+<br/>
 
 ## 다형성(polymorphism)
 `한 타입의 참조변수로 여러 타입의 객체를 참조`할 수 있는 것
@@ -570,6 +607,8 @@ if(a instanceof Vehicle)
 ```
 - Vehicle이 Car 클래스의 조상클래스라면 true가 반환된다.
 
+<br/>
+
 ## final 지정자
 
 #### 클래스 
@@ -605,6 +644,8 @@ class BB extends AA{
 	aa = 200;	// error
 }
 ```
+<br/>
+
 ## 패키지(package)
 서로 연관성이 있는 클래스들과 인터페이스들의 묶음
 
@@ -622,6 +663,8 @@ class BB extends AA{
 - 패키지명.* 은 지정된 패키지에 속하는 모든 클래스를 사용
 - ctrl + shift  + o 를 누르면 자동으로 import 문 추가
 
+<br/>
+
 ## 접근 제어자(access modifier)
 클래스, 멤버변수, 메서드, 생성자에서 사용
 
@@ -629,6 +672,8 @@ class BB extends AA{
     default 	같은 패키지 내에서만 접근이 가능
     protected 	같은 패키지 내에서, 그리고 다른 패키지의 자손클래스에서 접근이 가능
     public		모든 클래스에서 접근이 가능
+
+<br/>
 
 ## 익명 클래스(anonymous class)
 이름이 없는 클래스
@@ -650,6 +695,7 @@ Inter inter = new Inter() {
 	}
 };
 ```
+<br/>
 
 ## 내부 클래스(inner class)
 클래스 내에 선언된 클래스
@@ -686,6 +732,8 @@ class Outer{		// 외부 클래스
 ### 형식
 	외부클래스명.내부클래스명 참조변수 = 외부클래스참조변수.new 내부클래스 생성자();
 
+
+**코드**
 ```java
 // 1. 외부 클래스 객체 생성
 Outer outer = new Outer();
@@ -693,6 +741,7 @@ Outer outer = new Outer();
 // 2. 내부 클래스 객체 생성
 Outer.Inner inner = outer.new Inner();
 ```
+<br/>
 
 ## wrapper class
 기본자료형을 클래스 타입으로 `포장`해 놓은 클래스
