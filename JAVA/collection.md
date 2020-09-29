@@ -25,6 +25,7 @@ ArrayList<String> list = new ArrayList<String>();
 // 다형성으로 객체 생성
 List<String> list = new ArrayList<String>();
 ```
+<br/>
 
 **관련 메서드**
 
@@ -53,9 +54,12 @@ list.clear();
 ```java
 list.remove(1);
 ```
+<br/>
+
 **단점**
 
 > 용량을 변경해야할 때 상당히 효율이 떨어짐
+<br/>
 
 ### LinkedList
 
@@ -70,6 +74,8 @@ LinkedList<Integer> list=new LinkedList<Integer>();
 // 다형성으로 객체 생성
 List<Integer> list = new LinkedList<Integer>();
 ```
+<br/>
+
 ### Stack
 
 - LIFO(Last In First Out) 구조
@@ -79,6 +85,8 @@ List<Integer> list = new LinkedList<Integer>();
 ```java
 Stack<String> stack = new Stack<String>();
 ```
+<br/>
+
 **관련 메서드**
 
 - **push()** : 스택에 저장
@@ -93,17 +101,21 @@ stack.peek()
 ```java
 stack.pop()
 ```
+<br/>
+
 ### Queue
 
 -  FIFO(First In First Out) 구조
 - 인터페이스이므로 자식클래스로 객체 생성해서 사용
 - 대표적인 자식클래스는  LinkedList
 
+
 **생성**
 
 ```java
 Queue<String> queue = new LinkedList<String>();
 ```
+<br/>
 
 **관련 메서드**
 
@@ -119,6 +131,7 @@ queue.peek()
 ```java
 queue.poll()
 ```
+<br/>
 
 ## Set 
 
@@ -127,10 +140,12 @@ queue.poll()
 -  Set 인터페이스의 자식클래스를 이용하여 구현
 	-  HashSet, TreeSet
 
+
 **생성**
 ```java
 Set<Integer> set = new HashSet<Integer>();
 ```
+<br/>
 
 ## Map
 
@@ -143,6 +158,7 @@ Set<Integer> set = new HashSet<Integer>();
 ```java
 Map<String, Integer> map = new HashMap<String, Integer>();
 ```
+<br/>
 
 **관련 메서드**
 
@@ -158,6 +174,7 @@ map.get("abc");
 ```java
 map.containsKey("abc");
 ```
+<br/>
 
 ## Iterator
 컬렉션에 `저장된 요소를 접근`하는데 사용되는 인터페이스
@@ -169,6 +186,7 @@ map.containsKey("abc");
 ```java
 Iterator<String> it = list.iterator();
 ```
+<br/>
 
 **관련 메서드**
 
