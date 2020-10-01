@@ -5,6 +5,16 @@
 - 다루어질 객체의 타입을 미리 명시함으로써 형변환을 줄여 준다.
 - 데이터의 명확성과 안정성을 보장
 
+제네릭 용어
+```
+class Box<T>
+```
+- Box< T > :  제네릭 클래스
+- T : 타입 변수 or 타입 매개변수
+- Box : 원시 타입(raw type)
+<br/>
+
+code
 ```java
 class Generic<T>{
 	T[] str;
