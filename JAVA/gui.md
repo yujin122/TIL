@@ -245,3 +245,97 @@ JScrollPane jsp = new JScrollPane(
 				);
 ```
 
+#### 9. TabbedPane
+<img src="https://user-images.githubusercontent.com/46274903/95046155-8bc09700-071e-11eb-88ee-babf5cc68bd1.PNG" width=""  height="">
+
+
+ **형식**
+ 
+
+     JTabbedPane 참조변수 = new JTabbedPane();
+
+```java
+JTabbedPane tab = new JTabbedPane();
+
+// 각각의 컨테이너를 탭에 올려준다.
+tab.add("버튼 탭", jp1);
+tab.add("체크박스 탭", jp2);
+tab.add("라디오버튼 탭", jp3);
+
+// 4. 탭을 프레임에 올려준다.
+jf.add(tab);
+```
+
+#### 10. Menu
+
+<img src="https://user-images.githubusercontent.com/46274903/95046524-4bade400-071f-11eb-9451-e68faeef3c04.PNG" width=""  height="">
+
+**형식**
+
+    JMenuBar 참조변수 = new JMenuBar();
+    JMenu 참조변수 = new JMenu("메뉴이름");
+    JMenuItem 참조변수 = new JMenuItem("아이템이름");
+
+```java
+JMenuBar bar = new JMenuBar();
+
+// 메뉴 만들기
+JMenu jMenu1 = new JMenu("파일");
+
+// 메뉴 아이템 만들기
+JMenuItem jmi1 = new JMenuItem("새파일");
+
+// 메뉴에 메뉴아이템 추가
+jMenu1.add(jmi1);
+
+// 메뉴 사이에 경계선
+jMenu1.addSeparator();
+
+// 메뉴바에 메뉴 추가
+bar.add(jMenu1);
+```
+
+## 배치관리자(Layout)
+화면에 컴포넌트들을 `배치`하는 방법을 알려주는 관리자
+
+#### 1. FlowLayout
+상단 중앙에 컴포넌트를 배치하고 `좌에서 우`로 컴포넌트를 추가한다.
+
+- 화면이 넘칠 경우 바로 아래 중앙에 배치
+- 배치관리자 default 값
+
+**형식**
+
+    컨테이너(프레임)참조변수.setLayout(new FlowLayout(컴퓨넌트 정렬방법(왼쪽, 오른쪽, 중앙), 수평간격, 수직간격))
+
+```java
+jp.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 40));
+```
+
+#### 2. BorderLayout
+`동, 서, 남, 북, 중앙`에 배치
+
+**형식**
+
+    컨테이너(프레임)참조변수.setLayout(new BorderLayout(컴포넌트 정렬 방법(수평간격, 수직간격))
+
+```java
+jp.setLayout(new BorderLayout(40, 30));
+
+jp.add(jb1, BorderLayout.NORTH);
+jp.add(jb2, BorderLayout.SOUTH);
+
+```
+		
+#### 3. GridLayout
+격자 모양의 배치관리자, `행과 열`로 화면이 구성된다.
+
+**형식**
+
+    컨테이너(프레임)참조변수.setLayout(new GridLayout(행, 열, 수평간격, 수직간격))
+
+```java
+jp.setLayout(new GridLayout(4,3,5,5));
+```
+
+
