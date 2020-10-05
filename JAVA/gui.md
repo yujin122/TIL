@@ -244,6 +244,7 @@ JScrollPane jsp = new JScrollPane(
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER		
 				);
 ```
+<br/>
 
 #### 9. TabbedPane
 <img src="https://user-images.githubusercontent.com/46274903/95046155-8bc09700-071e-11eb-88ee-babf5cc68bd1.PNG" width=""  height="">
@@ -265,6 +266,7 @@ tab.add("라디오버튼 탭", jp3);
 // 4. 탭을 프레임에 올려준다.
 jf.add(tab);
 ```
+<br/>
 
 #### 10. Menu
 
@@ -294,6 +296,7 @@ jMenu1.addSeparator();
 // 메뉴바에 메뉴 추가
 bar.add(jMenu1);
 ```
+<br/>
 
 ## 배치관리자(Layout)
 화면에 컴포넌트들을 `배치`하는 방법을 알려주는 관리자
@@ -311,6 +314,7 @@ bar.add(jMenu1);
 ```java
 jp.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 40));
 ```
+<br/>
 
 #### 2. BorderLayout
 `동, 서, 남, 북, 중앙`에 배치
@@ -326,7 +330,8 @@ jp.add(jb1, BorderLayout.NORTH);
 jp.add(jb2, BorderLayout.SOUTH);
 
 ```
-		
+<br/>
+
 #### 3. GridLayout
 격자 모양의 배치관리자, `행과 열`로 화면이 구성된다.
 
