@@ -342,5 +342,191 @@ jp.add(jb2, BorderLayout.SOUTH);
 ```java
 jp.setLayout(new GridLayout(4,3,5,5));
 ```
+<br/>
 
+## Event Handler(이벤트 핸들러)
+각 컴포넌트에 대하여 특정 행위를 하였을 때 그 행위에 대한 작업을 처리할 수 있도록 하는 것
 
+### 이벤트 관련 용어
+
+- **이벤트 소스** : 이벤트를 발생시킨 GUI 컴포넌트
+- **이벤트 객체** : 발생한 이벤트에 대한 정보를 담는 객체
+- **이벤트 리스너**(Event Listener) : 이벤트를 처리하는 코드로서 컴포넌트에 등록이 되어야 작동이 가능
+- **이벤트 분배 스레드** : 이벤트 기반 프로그래밍의 핵심 요소로서 무한루프를 실행하는 스레드
+<br/>
+
+### 이벤트 동작 과정
+
+> ex) 버튼 클릭 시
+
+1. 사용자가 마우스로 버튼을 클릭
+2. 버튼 클릭은 운영체제의 마우스 드라이버를 거쳐 자바 가상기계(JVM)에 전달
+3. 자바가상기계는 이벤트 분배 스레드에게 마우스 클릭에 관한 정보를 전달
+4. 이벤트 분배 스레드는 `이벤트(ActionEvent) 객체`를 생성, 
+5. 이벤트 분배 스레드는 JButton에 연결된 버튼 컴포넌트와 관련된 `이벤트 리스너를 찾아서 호출`
+6. 이벤트 분배 스레드는 다음 이벤트를 기다림
+<br/>
+
+### 이벤트 리스너 작성 과정
+
+1. **이벤트와 이벤트 리스너 선택**
+2. **이벤트 리스너 클래스 작성** : 리스너 인터페이스를 상속받은 클래스를 작성하고 추상메서드를 모두 구현
+3. **이벤트 리스너 등록** : 이벤트를 받을 컴포넌트에 이벤트 리스너 등록
+<br/>
+
+### 이벤트 처리 방법
+
+1. **ActionListener**를 상속 받기
+
+```java
+public class Ex24_Event extends JFrame implements ActionListener{
+	
+	JLabel result;
+	
+	public Ex24_Event() {
+		
+		super("이벤트 테스트");
+		
+		JPanel panel = new JPanel();
+		
+		JButton male = new JButton("남자");
+		JButton female = new JButton("여자");
+		
+		JLabel label = new JLabel("당신의 성별은? ");
+		result = new JLabel();
+		result.setForeground(new Color(219,68,85));
+
+		panel.add(male); panel.add(female); panel.add(label); panel.add(result);
+
+		add(panel);
+		
+		// 이벤트를 받을 컴포넌트에 이벤트 리스너 등록
+		male.addActionListener(this);
+		female.addActionListener(this);
+		
+		setBounds(200, 100, 300, 100);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+		
+		
+	}
+	
+	// 이벤트가 발생했을 때 처리할 내용을 작성할 메서드
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// 이벤트를 처리한 컴포넌트(버튼)의 타이틀(문자열)을 가져오는 메서드 
+		result.setText(e.getActionCommand());	
+	}
+	
+	public static void main(String[] args) {
+		new Ex24_Event();
+	}
+}
+```
+<br/>
+
+2. **무명클래스**로 이벤트 처리
+
+```java
+public class Ex25_Event extends JFrame{
+	JLabel result;
+	
+	public Ex25_Event() {
+		
+		super("이벤트 테스트");
+
+		JPanel panel = new JPanel();
+		
+		JButton male = new JButton("남자");
+		JButton female = new JButton("여자");
+		
+		JLabel label = new JLabel("당신의 성별은? ");
+		result = new JLabel();
+		result.setForeground(new Color(219,68,85));
+		
+		panel.add(male); panel.add(female); panel.add(label); panel.add(result);
+		
+		add(panel);
+		
+		setBounds(200, 100, 300, 100);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+		
+		// 이벤트 처리 - 무명클래스로 이벤트 처리
+		// male 버튼을 클릭했을 때 이벤트 처리
+		male.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				result.setText(e.getActionCommand());
+			}
+		});
+		
+		// female 버튼을 클릭했을 때 이벤트 처리
+		female.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				result.setText(e.getActionCommand());
+			}
+		});
+		
+		
+	}
+		
+	public static void main(String[] args) {
+		new Ex25_Event();
+	}
+}
+```
+<br/>
+
+3. **독립된 클래스** 작성
+
+```java
+public class Ex26_Event {
+
+	public static void main(String[] args) {
+		
+		JFrame jf = new JFrame("버튼 이벤트 처리");
+		
+		JPanel jp = new JPanel();
+		
+		JButton button = new JButton("JAVA");
+		
+		// 이벤트 관련 독립된 클래스를 생성
+		MyButton listener = new MyButton();
+		
+		button.addActionListener(listener);
+		
+		jp.add(button);
+		
+		jf.add(jp);
+		
+		jf.setBounds(200, 200, 300, 300);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setVisible(true);
+		
+		
+	}
+}
+
+// 독립된 클래스를 작성하여 이벤트 처리.
+class MyButton implements ActionListener{
+	
+	public MyButton() {	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		JButton button = (JButton)e.getSource();
+		
+		if(button.getText().equals("JAVA")) {
+			button.setText("자바");
+		}else {
+			button.setText("JAVA");
+		}
+	}
+	
+}
+```
