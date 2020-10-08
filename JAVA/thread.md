@@ -12,7 +12,7 @@
 - 하나의 프로세스가 가질 수 있는 스레드의 개수는 제한이 없음
 
 ### 멀티스레딩
-여러 개의 `스레드`가 동시에 작업 
+여러 개의 `스레드`가 동시에 작업 <br/>
 -> 아주 짧은 시간 동안 `여러 작업을 번갈아 가며 수행`함으로써 여러 작업이 동시에 수행되는 것 처럼 보임
 
 **멀티태스킹** : 여러 개의 `프로세스`가 동시에 실행
@@ -34,7 +34,7 @@
 #### 1. Thread 클래스 상속(extends)
 ```java
 class Thread1 extends Thread {
-	public void run() {		/* 작업내용 */	}	// run() 메서드 오버라이딩
+	public void run() {	/* 작업내용 */	}	// run() 메서드 오버라이딩
 }
 
 public static void main(String[] args){
@@ -50,7 +50,7 @@ public static void main(String[] args){
 ```java
 class Thread1 implements Runnable {
 	@Override
-	public void run() {		/* 작업내용 */	}	// run() 메서드 구현
+	public void run() {	/* 작업내용 */	}	// run() 메서드 구현
 }
 
 public static void main(String[] args){
@@ -79,7 +79,7 @@ class Thread1 extends Thread {
 		super(name);
 	}
 	
-	public void run() {		/* 작업내용 */	}	// run() 메서드 오버라이딩
+	public void run() {	/* 작업내용 */	}	// run() 메서드 오버라이딩
 }
 
 public static void main(String[] args) {
