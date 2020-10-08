@@ -13,4 +13,6 @@ Today I Learned / 그 날 배운 내용을 기록합니다✍
 - [예외(Exception)](JAVA/exception.md)
 - [컬렉션 프레임워크](JAVA/collection.md)
 - [입출력(I/O)](JAVA/stream.md)
+- [스레드(Thread)](JAVA/thread.md)
 - [GUI](JAVA/gui.md)
+- [네트워크(Network)](JAVA/network.md)
