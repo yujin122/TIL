@@ -11,7 +11,7 @@
 - [서브 쿼리](https://github.com/yujin122/TIL/blob/master/DB/db.md#서브-쿼리)
 - [group by - having절](https://github.com/yujin122/TIL/blob/master/DB/db.md#group-by---having절)
 - [View](https://github.com/yujin122/TIL/blob/master/DB/db.md#view)
-- [트랜잭션](https://github.com/yujin122/TIL/blob/master/DB/db.md#트랜잭션transacion)
+- [트랜잭션](https://github.com/yujin122/TIL/blob/master/DB/db.md#트랜잭션transaction)
 <br/>
 
 ## 데이터베이스
