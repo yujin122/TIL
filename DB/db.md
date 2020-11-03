@@ -8,8 +8,8 @@
 - [그룹함수](https://github.com/yujin122/TIL/blob/master/DB/db.md#그룹함수)
 - [조인(Join)](https://github.com/yujin122/TIL/blob/master/DB/db.md#join-on)
 - [시퀀스(sequence)](https://github.com/yujin122/TIL/blob/master/DB/db.md#시퀀스sequence)
-- [서브 쿼리](https://github.com/yujin122/TIL/blob/master/DB/db.md#서브쿼리)
-- [group by - having절](https://github.com/yujin122/TIL/blob/master/DB/db.md#groupby-having절)
+- [서브 쿼리](https://github.com/yujin122/TIL/blob/master/DB/db.md#서브-쿼리)
+- [group by - having절](https://github.com/yujin122/TIL/blob/master/DB/db.md#group-by---having절)
 - [View](https://github.com/yujin122/TIL/blob/master/DB/db.md#view)
 - [트랜잭션](https://github.com/yujin122/TIL/blob/master/DB/db.md#트랜잭션transacion)
 <br/>
