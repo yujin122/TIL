@@ -1,18 +1,19 @@
-﻿# 자바스크립트(JavaScript)
-- 자바스크립트
-- 데이터 출력 방법
-- 입력 대화상자
-- 변수
-- 관계 연산자
-- 제어문
-- 배열(Array)
-- 함수(Function)
-- BOM(Browser Object Model)
+# 자바스크립트(JavaScript)
+- [자바스크립트란?](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#자바스크립트)
+- [데이터 출력 방법](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#데이터-출력-방법)
+- [입력 대화상자](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#입력-대화상자)
+- [변수](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#변수)
+- [관계 연산자](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#관계-연산자)
+- [제어문](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#제어문)
+- [배열(Array)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#배열array)
+- [함수(Function)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#함수function)
+- [BOM(Browser Object Model)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#BOMbrowser-object-model)
 <br>
 
 ## 자바스크립트
-개발자가 만든 문서에 방문자가 방문하여 어떤 동작을 취했을 때, 그 동작에 대응하여 반응이일어날 수 있도록 해주는 언어.
+개발자가 만든 문서에 방문자가 방문하여 어떤 동작을 취했을 때, 그 동작에 대응하여 반응이일어날 수 있도록 해주는 언어. <br>
 웹 브라우저에서 사용하기 위해 만들어진 프로그램
+<br>
 
 ### 특징
 1. 자바스크립트는 `인터프리터 언어`
@@ -60,6 +61,7 @@
 데이터를 저장하는 공간. 데이터가 `변할 수 없음`.
 
     const 상수명;
+<br>
 
 ### 자료형
 
@@ -80,11 +82,12 @@
 
 <br>
 
-**==** 
+**==**  <br>
 동등연산자로 비교 대상 값의 자료형이 다른 경우 `강제로 형을 바꾼 뒤에 비교`
 
-**===**
+**===** <br>
 `값과 자료형 모두가 일치`할 때 true 값 반환
+<br>
 <br>
 
 ## 제어문
@@ -117,6 +120,7 @@
     var 배열명 = new Array();
 
 ##### 자바스크립트에서의 배열은 모든 데이터 타입(자료형)을 다 담을 수 있음.
+<br>
 
 ### 메서드
 
@@ -132,7 +136,7 @@
 ## 함수(Function)
 `기능을 정의`해 놓은 것
 
-종류
+### 종류
 1. **사용자 정의 함수** :  사용자가 직접 만들어 놓은 함수.
 
 		function 함수명(인자1, 인자2){
@@ -143,18 +147,18 @@
 2. **내장 함수** : 자바스크립트에서 자체적으로 제공해 주는 함수.
 <br>
 
-	#### 날짜(Date)
+#### 날짜(Date)
 	
 		var date = New Date();
 
-	#### 메서드
+#### 메서드
 - ***getYear***() : 1900년을 기준으로 값을 반환 - 0이라고 인식
 - ***getFullYear***() | ***getMonth***() | ***getDate***() : 현재 날짜(년 | 월 | 일)
 - ***getDay***() : 현재 요일, 0(일요일) ~ 6(토요일)
 - ***getHours***() | ***getMinutes***() | ***getSeconds***() : 현재 시간(시 | 분 | 초)
 <br>
 
-	####  수학(Math)
+####  수학(Math)
 
 - ***abs***(숫자) : 숫자의 절대값을 반환
 - ***max***(숫자1, 숫자2, 숫자3, ...숫자n) : 숫자 중 가장 큰 값을 반환
@@ -170,6 +174,7 @@
 
 ## BOM(Browser Object Model)
 `브라우저 객체 모델`, 브라우저 내에 내장된 객체
+<br>
 
 ### window 객체의 주요 메서드
 
@@ -181,6 +186,7 @@
 - ***resizeTo***() : 창의 크기를 변경시킬 때 사용
 - ***setInterval***() : 일정 간격으로 지속적으로 실행문을 실행시킬 때 사용
 - ***setTimeout***() : 일정 간격으로 한번만 실행문을 실행시킬 때 사용
+<br>
 
  ### screen 객체
  사용자의 `모니터 정보를 제공`해 주는 객체
@@ -190,12 +196,14 @@
 - screen.***availWidth*** : 작업표시줄을 제외한 화면의 너비값을 반환
 - screen.***availHeight*** : 작업표시줄을 제외한 화면의 높이값을 반환
 - screen.***colorDepth*** : 사용자 모니터가 표현 가능한 컬러 bit를 반환
+<br>
 
 ### location 객체
 실행되고 있는 현재 브라우저의 주소창에 표시된 `주소 값에 관련된 내용`을 다루는 객체
 
 - location.***href*** : 브라우저 창의 url 값을 반환
 - location.***reload***() : 브라우저 창의 새로고침이 일어나는 메서드
+<br>
 
 ### history 객체
 브라우저가 `페이지를 변경한 이력이 저장`되어 있는 객체
