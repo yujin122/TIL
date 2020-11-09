@@ -8,7 +8,7 @@
 - [배열(Array)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#배열array)
 - [함수(Function)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#함수function)
 - [BOM(Browser Object Model)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#BOMbrowser-object-model)
-- [DOM(Document Object Model)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#Document-object-model)
+- [DOM(Document Object Model)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#DOMdocument-object-model)
 <br>
 
 ## 자바스크립트
@@ -297,7 +297,7 @@
 		headers[1].innerHTML = "내용";
 <br>
 
-3. **querySelector(*선택자* )** | **querySelectorAll(*선택자* )**
+3. **querySelector(*선택자* )** | **querySelectorAll(*선택자* )** <br>
 `선택자`로 가장 처음 선택되는 문서의 요소를 가저오는 메서드 | `배열`로 가져오는 메서드
 
 		var header = document.querySelector(#header);
