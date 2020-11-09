@@ -8,6 +8,7 @@
 - [배열(Array)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#배열array)
 - [함수(Function)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#함수function)
 - [BOM(Browser Object Model)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#BOMbrowser-object-model)
+- [DOM(Document Object Model)](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#Document-object-model)
 <br>
 
 ## 자바스크립트
@@ -215,6 +216,7 @@
 <br>
 
 ## DOM(Document Object Model)
+
 `문서 객체 모델`, 웹브라우저가 HTML 페이지에 접근하는 방법을 정의한 API
 
 - 동적인 HTML을 만들어 내기 위해 DOM 객체에 접근하여 조작
@@ -223,6 +225,7 @@
 <br>
 
 ### 문서 객체
+
 자바스크립트에서 이용할 수 있는 객체
 
 - **노드** : 문서를 이루는 모든 요소를 통합해서 부르는 용어, HTML페이지의 각 요소(태그)
@@ -232,6 +235,7 @@
 <br>
 
 ### 웹 페이지를 처리하는 과정
+
 1. 웹 페이지 읽기 
 
 2. 파싱(parsing) 단계
@@ -245,18 +249,22 @@
 1. 문서의 body 부분을 읽은 후 자바스크립트 실행
 
 		window.onload = function() {
-				// 내용
+			// 내용
 		}
+<br>
+
 2. **요소를 생성** : **createElement(*tagName*)**
 
 		var header = document.createElement(tagName);
 		var textNode = document.creatTextNode("내용");
-	
+<br>
+
 3. **노드 연결** :  **appendChild(*요소* )**
 
 		header.appendChild(textNode);
 		// body 영역에 연결
 		document.body.appendChild(header);
+<br>
 
 4. img
 
@@ -278,6 +286,7 @@
 
 		var header = document.getElementById("header");
 		header.innerHTML = "내용";
+<br>
 
 2. **getElementsByTagName(*tagName*)** <br>
 `tagName과 일치하는 요소`를 `배열`로 가져오는 메서드
@@ -286,6 +295,7 @@
 
 		headers[0].innerHTML = "내용";
 		headers[1].innerHTML = "내용";
+<br>
 
 3. **querySelector(*선택자* )** | **querySelectorAll(*선택자* )**
 `선택자`로 가장 처음 선택되는 문서의 요소를 가저오는 메서드 | `배열`로 가져오는 메서드
