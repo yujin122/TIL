@@ -1,4 +1,4 @@
-# 자바스크립트(JavaScript)
+﻿# 자바스크립트(JavaScript)
 - [자바스크립트란?](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#자바스크립트)
 - [데이터 출력 방법](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#데이터-출력-방법)
 - [입력 대화상자](https://github.com/yujin122/TIL/blob/master/JavaScript/js.md#입력-대화상자)
@@ -211,3 +211,87 @@
 - history.***forward***() : 다음에 방문한 페이지로 이동
 - history.***go***(숫자) : 숫자만틈 페이지로 이동
 - ***length*** : 방문 기록에 저장된 목록의 갯수를 반환
+
+<br>
+
+## DOM(Document Object Model)
+`문서 객체 모델`, 웹브라우저가 HTML 페이지에 접근하는 방법을 정의한 API
+
+- 동적인 HTML을 만들어 내기 위해 DOM 객체에 접근하여 조작
+
+- DOM 방식은 트리구조
+<br>
+
+### 문서 객체
+자바스크립트에서 이용할 수 있는 객체
+
+- **노드** : 문서를 이루는 모든 요소를 통합해서 부르는 용어, HTML페이지의 각 요소(태그)
+
+- **요소(element)** : <시작태그> 텍스트 </끝태그>
+- **텍스트 노드** : 요소 안에 있는 글자, innerHTML과 관계가 있음.
+<br>
+
+### 웹 페이지를 처리하는 과정
+1. 웹 페이지 읽기 
+
+2. 파싱(parsing) 단계
+- 파싱 단계를 거쳐 내용을 해석하고, 마크업 태그와 1:1 매칭이 되는 `DOM 클래스 객체 생성`
+3. 출력
+- 생성한 DOM 객체를 가지고 웹페이지 화면 출력
+<br>
+
+### 메서드
+
+1. 문서의 body 부분을 읽은 후 자바스크립트 실행
+
+		window.onload = function() {
+				// 내용
+		}
+2. **요소를 생성** : **createElement(*tagName*)**
+
+		var header = document.createElement(tagName);
+		var textNode = document.creatTextNode("내용");
+	
+3. **노드 연결** :  **appendChild(*요소* )**
+
+		header.appendChild(textNode);
+		// body 영역에 연결
+		document.body.appendChild(header);
+
+4. img
+
+		var imgNode = document.createElement("img");
+		
+		// img 태그 속성 설정
+		imgNode.src = "이미지 주소";
+		imgNode.width = "너비";
+		
+		//or
+		
+		imgNode.setAttribute("속성이름", "값");
+<br>
+	
+### 문서의 요소를 가져오는 방법
+
+1. **getElementById(*id*)** <br>
+태그에 id 속성이 `id와 일치하는 요소`를 가져오는 메서드
+
+		var header = document.getElementById("header");
+		header.innerHTML = "내용";
+
+2. **getElementsByTagName(*tagName*)** <br>
+`tagName과 일치하는 요소`를 `배열`로 가져오는 메서드
+
+		var headers = document.getElementsByTagName("h1");
+
+		headers[0].innerHTML = "내용";
+		headers[1].innerHTML = "내용";
+
+3. **querySelector(*선택자* )** | **querySelectorAll(*선택자* )**
+`선택자`로 가장 처음 선택되는 문서의 요소를 가저오는 메서드 | `배열`로 가져오는 메서드
+
+		var header = document.querySelector(#header);
+		header1.innerHTML = "내용"
+<br>
+	 
+**innerHTML** : 문서 객체의 `내용 변경`
