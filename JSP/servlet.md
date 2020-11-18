@@ -31,6 +31,7 @@
     doPost(HttpServletRequest request, HttpServletResponse response)
 
 - **request**, 첫번째 매개변수 : 사용자의 요청에 대한 정보를 처리
+
 - **response**, 두번째 매개변수 : 요청 정보에 대한 처리 결과를 클라이언트에 응답 처리
 - javax.servlet.**HttpServletRequest**  : 요청과 관련된 API
 - javax.servlet.**HttpServletResponse** : 응답과 관련된 API
@@ -41,12 +42,15 @@
 #### HttpServletRequest request
 
 - ***getParameter***(String name) : <form> 태그의 name 속성에 들어간 변수명을 받아서 데이터를 받아옴
+
 - ***getParameterValues***(String name) : <form> 태그의 같은 name 속성에 대해 여러 개의 데이터를 배열로 받아옴
 - ***setCharacterEncoding***("utf-8") : 한글 처리
-
+<br>
+    
 #### HttpServletResponse
 
 - ***setContentType***("text/html; charset=UTF-8") : 응답 시 한글 처리
+
 - ***getWriter()***
 <br>
 
@@ -57,12 +61,14 @@
 1. **get 방식**
 
 - 서블릿에 데이터를 전송할 때 데이터가 `url 뒤에 name = value 형태`로 전송
+
 - 여러 개의 데이터를 전송할 경우 '&'로 구분
 - 보안에 취약
 - 전송할 수 있는 데이터는 최대 255자
 
 2. **post 방식**
 - 서블릿에 데이터를 전송할 때 TCP/IP 프로토콜 데이터의 `head 영역에 숨겨져서 전송`
+
 - 보안에 유리
 - 전송 데이터의 용량이 무제한
 - 처리속도가 get 보다 느림

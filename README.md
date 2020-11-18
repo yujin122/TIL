@@ -19,3 +19,9 @@ Today I Learned / 그 날 배운 내용을 기록합니다✍
 
 ## 📕 DB
 - [DataBase](DB/db.md)
+
+## 📗 JavaScript
+- [JavaScript](JavaScript/js.md)
+
+## 📘 JQuery
+- [JQuery](JQuery/jq.md)
