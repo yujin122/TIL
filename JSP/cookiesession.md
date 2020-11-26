@@ -21,6 +21,7 @@
 
 	    Cookie cookie = new Cookie(key, value)
 
+2. 쿠키 속성 설정
 
 		cookie.setMaxAge(60*30);
 
