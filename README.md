@@ -22,6 +22,7 @@ Today I Learned / 그 날 배운 내용을 기록합니다✍
 
 ## 📗 JavaScript
 - [JavaScript](JavaScript/js.md)
+- [var, let, const 차이점](JavaScript/var_let_const.md)
 
 ## 📘 JQuery
 - [JQuery](JQuery/jq.md)
